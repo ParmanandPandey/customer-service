@@ -1,0 +1,95 @@
+﻿
+    @model Customer.Model.Requests.CustomerAddRequestModel
+
+    @{
+        var msg = Convert.ToString(TempData["Ragister"]);
+        Layout = "~/Views/Shared/_Layout.cshtml";
+
+    }
+
+    <h1>Customer Registration Form </h1>
+
+    <div class="row">
+        <div class="col-md-9">
+            <form asp-action="AddCustomers">
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="CustomerFirstName" class="control-label"></label>
+                    <input asp-for="CustomerFirstName" class="form-control" />
+                    <span asp-validation-for="CustomerFirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CustomerLastName" class="control-label"></label>
+                    <input asp-for="CustomerLastName" class="form-control" />
+                    <span asp-validation-for="CustomerLastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CustomerFullName" class="control-label"></label>
+                    <input asp-for="CustomerFullName" class="form-control" />
+                    <span asp-validation-for="CustomerFullName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="EmailId" class="control-label"></label>
+                    <input asp-for="EmailId" class="form-control" />
+                    <span asp-validation-for="EmailId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control" type="password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address1" class="control-label"></label>
+                    <input asp-for="Address1" class="form-control" />
+                    <span asp-validation-for="Address1" class="text-danger"></span>
+                    <hr />
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="Address2" class="control-label"></label>
+                    <input asp-for="Address2" class="form-control" />
+                    <span asp-validation-for="Address2" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="City" class="control-label"></label>
+                    <input asp-for="City" class="form-control" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Country" class="control-label"></label>
+                    <input asp-for="Country" class="form-control" />
+                    <span asp-validation-for="Country" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="State" class="control-label"></label>
+                    <input asp-for="State" class="form-control" />
+                    <span asp-validation-for="State" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Pin" class="control-label"></label>
+                    <input asp-for="Pin" class="form-control" />
+                    <span asp-validation-for="Pin" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Save User Details" class="btn btn-primary" />
+
+                </div>
+                <b>@ViewBag.message</b>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Login">Back to List</a>
+    </div>
+    @if (!string.IsNullOrEmpty(msg))
+    {
+        <span class="text-danger">@msg</span>
+    }
+
+    @*@section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }*@
+}
